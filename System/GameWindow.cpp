@@ -62,3 +62,19 @@ void GameWindow::close()
 
 	SDL_Quit();
 }
+
+SDL_Surface* GameWindow::get_buffer1()
+{
+	return buffer1;
+}
+
+
+SDL_Surface* GameWindow::get_buffer2()
+{
+	return buffer2;
+}
+
+SDL_Window* GameWindow::get_window()
+{
+	return window;
+}

@@ -12,6 +12,9 @@ public:
 	bool init(void);
 	bool loadMedia();
 	void close(void);
+	SDL_Surface* get_buffer1();
+	SDL_Surface* get_buffer2();
+	SDL_Window* get_window();
 private:
 	const int SCREEN_WIDTH = 640;
 	const int SCREEN_HEIGHT = 480;
