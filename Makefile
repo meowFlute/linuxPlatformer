@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project 
-OBJS = main.cpp 
+OBJS = main.cpp System/GameWindow.cpp
 
 #CC specifies which compiler we're using 
 CC = g++ 
@@ -12,7 +12,7 @@ COMPILER_FLAGS = -w
 LINKER_FLAGS = -lSDL2 
 
 #OBJ_NAME specifies the name of our exectuable 
-OBJ_NAME = scottPlatformer 
+OBJ_NAME = linuxPlatformer 
 
 #This is the target that compiles our executable 
 all : $(OBJS) 
