@@ -16,8 +16,8 @@ public:
 	SDL_Surface* get_buffer2();
 	SDL_Window* get_window();
 private:
-	static const int SCREEN_WIDTH = 640;
-	static const int SCREEN_HEIGHT = 480;
+	static int SCREEN_WIDTH = 640;
+	static int SCREEN_HEIGHT = 480;
 	SDL_Window* window;
 	SDL_Surface* buffer1;
 	SDL_Surface* buffer2;

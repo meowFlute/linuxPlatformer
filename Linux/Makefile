@@ -6,10 +6,21 @@ CC = g++
 
 #COMPILER_FLAGS specifies the additional compilation options we're using 
 # -w suppresses all warnings 
-COMPILER_FLAGS = -w 
+# -Wall produces warning messages
+# -g for gdb debugging
+# -pg for profiling (timing the execution) of methods
+# -MM prints header files used
+# -pg
+# -c means 'compile only' producing -o files with no linking
+# -Dname=value puts a #define name value at the top of your file
+COMPILER_FLAGS = -Wall -g -pg
 
 #LINKER_FLAGS specifies the libraries we're linking against 
-LINKER_FLAGS = -lSDL2 
+# -l<library-name> is a library that we're linking against, as in lSDL2 for the SDL2 library
+#		-lm might be for the math functions
+# -g is for debugging with gdb
+# -pg for profiling (timing the execution) of methods
+LINKER_FLAGS = -lSDL2 -g -pg
 
 #OBJ_NAME specifies the name of our exectuable 
 OBJ_NAME = linuxPlatformer 
