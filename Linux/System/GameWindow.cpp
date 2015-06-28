@@ -2,8 +2,8 @@
 
 GameWindow::GameWindow(void)
 {
-	buffer1 = NULL;
-	buffer2 = NULL;
+	viewingScreen = NULL;
+	imageBuffer = NULL;
 	window = NULL;
 }
 
@@ -31,7 +31,7 @@ bool GameWindow::init()
 		}
 		else
 		{
-			buffer1 = SDL_GetWindowSurface( window );
+			viewingScreen = SDL_GetWindowSurface( window );
 		}
 	}
 
@@ -42,20 +42,20 @@ bool GameWindow::loadMedia()
 {
 	bool success = true;
 
-	buffer2 = SDL_LoadBMP( "hello_world.bmp" );
-	if( buffer2 == NULL )
-	{
-		printf( "Unable to load image %s! SDL Error: %s\n", "hello_world.bmp", SDL_GetError() );
-		success = false;
-	}
+	//imageBuffer = SDL_LoadBMP( "resources/hello_world.bmp" );
+	//if( imageBuffer == NULL )
+	//{
+	//	printf( "Unable to load image %s! SDL Error: %s\n", "resources/hello_world.bmp", SDL_GetError() );
+	//	success = false;
+	//}
 
 	return success;
 }
 
 void GameWindow::close()
 {
-	SDL_FreeSurface( buffer2 );
-	buffer2 = NULL;
+	//SDL_FreeSurface( imageBuffer );
+	imageBuffer = NULL;
 
 	SDL_DestroyWindow( window );
 	window = NULL;
@@ -63,15 +63,20 @@ void GameWindow::close()
 	SDL_Quit();
 }
 
-SDL_Surface* GameWindow::get_buffer1()
+SDL_Surface* GameWindow::get_viewingScreen()
 {
-	return buffer1;
+	return viewingScreen;
 }
 
 
-SDL_Surface* GameWindow::get_buffer2()
+SDL_Surface* GameWindow::get_imageBuffer()
 {
-	return buffer2;
+	return imageBuffer;
+}
+
+void GameWindow::set_imageBuffer(SDL_Surface* image)
+{	
+	imageBuffer = image;
 }
 
 SDL_Window* GameWindow::get_window()

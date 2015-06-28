@@ -3,6 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <string>
+
+#include "EventHandler.h"
 
 class GameWindow
 {
@@ -12,15 +15,17 @@ public:
 	bool init(void);
 	bool loadMedia();
 	void close(void);
-	SDL_Surface* get_buffer1();
-	SDL_Surface* get_buffer2();
+	SDL_Surface* get_viewingScreen();
+	SDL_Surface* get_imageBuffer();
+	void set_imageBuffer(SDL_Surface* image);
 	SDL_Window* get_window();
+	EventHandler eventHandler;
 private:
 	static const int SCREEN_WIDTH = 640;
 	static const int SCREEN_HEIGHT = 480;
 	SDL_Window* window;
-	SDL_Surface* buffer1;
-	SDL_Surface* buffer2;
+	SDL_Surface* viewingScreen;
+	SDL_Surface* imageBuffer;
 };
 
 #endif //GAME_WINDOW_H
