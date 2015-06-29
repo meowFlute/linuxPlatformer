@@ -1,2 +1,2 @@
 # linuxPlatformer
-Create a platformer using only the terminal and a text editor
+Create a cross platform platformer using only the terminal and a text editor
