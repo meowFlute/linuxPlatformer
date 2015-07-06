@@ -1,6 +1,0 @@
-#ifndef ERRORS_H
-#define ERRORS_H
-
-void fatalError(std::string errorString);
-
-#endif
