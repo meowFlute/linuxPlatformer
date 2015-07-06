@@ -1,0 +1,36 @@
+#ifndef MAIN_GAME_H
+#define MAIN_GAME_H
+
+#include <SDL2/SDL.h>
+#include <GL/glew.h>
+
+#include "Sprite.h"
+
+typedef enum  
+{
+	PLAY, 
+	EXIT
+}GameState;
+
+class MainGame
+{
+public:
+    MainGame();
+    ~MainGame();
+
+    void run();
+
+private:
+    void initSystems();
+    void gameLoop();
+    void processInput();
+    void drawGame();
+
+    SDL_Window* _window;
+    int _screenWidth;
+    int _screenHeight;
+    GameState _gameState;
+
+    Sprite _sprite;
+};
+#endif //MAIN_GAME_H

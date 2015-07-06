@@ -1,7 +1,5 @@
 #OBJS specifies which files to compile as part of the project 
-#OBJS = main.cpp System/GameWindow.cpp System/EventHandler.cpp
-OBJS = openGL.cpp
-#OBJS = GUI.cpp
+OBJS = main.cpp MainGame.cpp Sprite.cpp GLSLProgram.cpp Errors.cpp
 
 #CC specifies which compiler we're using 
 CC = g++ 
@@ -16,7 +14,7 @@ CC = g++
 # -I for include directory paths
 # -c means 'compile only' producing -o files with no linking
 # -Dname=value puts a #define name value at the top of your file
-COMPILER_FLAGS = -Wall -g -pg -I/home/scott/Development/AntTweakBar/include/
+COMPILER_FLAGS = -Wall -g
 
 #LINKER_FLAGS specifies the libraries we're linking against 
 # -l<library-name> is a library that we're linking against, as in lSDL2 for the SDL2 library
@@ -24,7 +22,7 @@ COMPILER_FLAGS = -Wall -g -pg -I/home/scott/Development/AntTweakBar/include/
 # -L for library folder paths
 # -g is for debugging with gdb (and for me ddd)
 # -pg for profiling (timing the execution) of methods
-LINKER_FLAGS = -lSDL2 -lGL -lGLU -lGLEW -L/home/scott/Development/AntTweakBar/lib/ -lAntTweakBar -g -pg
+LINKER_FLAGS = -lSDL2 -lGL -lGLEW -g
 
 #OBJ_NAME specifies the name of our exectuable 
 OBJ_NAME = linuxPlatformer 
