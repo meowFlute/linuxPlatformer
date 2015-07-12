@@ -11,22 +11,20 @@ CC = g++
 # -pg for profiling (timing the execution) of methods
 # -MM prints header files used
 # -pg
-# -I for include directory paths
 # -c means 'compile only' producing -o files with no linking
 # -Dname=value puts a #define name value at the top of your file
-COMPILER_FLAGS = -Wall -g
+COMPILER_FLAGS = -IC:\MinGW_dev_lib\include -LC:\MinGW_dev_lib\lib -w #-Wl,-subsystem,windows
 
 #LINKER_FLAGS specifies the libraries we're linking against 
 # -l<library-name> is a library that we're linking against, as in lSDL2 for the SDL2 library
 #		-lm might be for the math functions
-# -L for library folder paths
-# -g is for debugging with gdb (and for me ddd)
+# -g is for debugging with gdb
 # -pg for profiling (timing the execution) of methods
-LINKER_FLAGS = -lSDL2 -lGL -lGLEW -g
+LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lglew32s -lopengl32 
 
 #OBJ_NAME specifies the name of our exectuable 
-OBJ_NAME = linuxPlatformer 
+OBJ_NAME = windowsPlatformer 
 
 #This is the target that compiles our executable 
 all : $(OBJS) 
-	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -DGLEW_STATIC -o $(OBJ_NAME)
