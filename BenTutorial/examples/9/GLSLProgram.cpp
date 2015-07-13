@@ -18,7 +18,7 @@ GLSLProgram::~GLSLProgram()
 
 //Compiles the shaders into a form that your GPU can understand
 void GLSLProgram::compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilepath) {
-	 //Vertex and fragment shaders are successfully compiled.
+    //Vertex and fragment shaders are successfully compiled.
     //Now time to link them together into a program.
     //Get a program object.
     _programID = glCreateProgram();
@@ -84,14 +84,6 @@ void GLSLProgram::linkShaders() {
 //Adds an attribute to our shader. SHould be called between compiling and linking.
 void GLSLProgram::addAttribute(const std::string& attributeName) {
     glBindAttribLocation(_programID, _numAttributes++, attributeName.c_str());
-}
-
-GLuint GLSLProgram::getUniformLocation(const std::string& uniformName) {
-    GLuint location = glGetUniformLocation(_programID, uniformName.c_str());
-    if (location == GL_INVALID_INDEX) {
-        fatalError("Uniform " + uniformName + " not found in shader!");
-    }
-    return location;
 }
 
 //enable the shader, and all its attributes

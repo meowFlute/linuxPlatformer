@@ -10,7 +10,7 @@ MainGame::MainGame() :
     _screenHeight(768), 
     _time(0.0f),
     _window(NULL), 
-    _gameState(PLAY)
+    _gameState(GameState::PLAY)
 {
 
 }

@@ -18,7 +18,7 @@ GLSLProgram::~GLSLProgram()
 
 //Compiles the shaders into a form that your GPU can understand
 void GLSLProgram::compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilepath) {
-	 //Vertex and fragment shaders are successfully compiled.
+    //Vertex and fragment shaders are successfully compiled.
     //Now time to link them together into a program.
     //Get a program object.
     _programID = glCreateProgram();
@@ -115,7 +115,7 @@ void GLSLProgram::unuse() {
 void GLSLProgram::compileShader(const std::string& filePath, GLuint id) {
 
     //Open the file
-    std::ifstream shaderFile(filePath.c_str());
+    std::ifstream shaderFile(filePath);
     if (shaderFile.fail()) {
         perror(filePath.c_str());
         fatalError("Failed to open " + filePath);
@@ -136,7 +136,7 @@ void GLSLProgram::compileShader(const std::string& filePath, GLuint id) {
     //get a pointer to our file contents c string;
     const char* contentsPtr = fileContents.c_str();
     //tell opengl that we want to use fileContents as the contents of the shader file
-    glShaderSource(id, 1, &contentsPtr, NULL);
+    glShaderSource(id, 1, &contentsPtr, nullptr);
 
     //compile the shader
     glCompileShader(id);

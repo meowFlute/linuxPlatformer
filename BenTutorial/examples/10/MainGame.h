@@ -1,13 +1,13 @@
 #pragma once
 
-#include <SDL2/SDL.h>
+#include <SDL/SDL.h>
 #include <GL/glew.h>
 
 #include "GLSLProgram.h"
 
 #include "Sprite.h"
 
-typedef enum {PLAY, EXIT}GameState;
+enum class GameState {PLAY, EXIT};
 
 class MainGame
 {
@@ -32,7 +32,7 @@ private:
     Sprite _sprite;
 
     GLSLProgram _colorProgram;
-    
+
     float _time;
 };
 

@@ -32,7 +32,5 @@ private:
     Sprite _sprite;
 
     GLSLProgram _colorProgram;
-    
-    float _time;
 };
 

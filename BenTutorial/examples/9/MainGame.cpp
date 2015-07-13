@@ -5,14 +5,12 @@
 #include <string>
 
 //Constructor, just initializes private member variables
-MainGame::MainGame() : 
-    _screenWidth(1024),
-    _screenHeight(768), 
-    _time(0.0f),
-    _window(NULL), 
-    _gameState(PLAY)
+MainGame::MainGame()
 {
-
+    _window = NULL;
+    _screenWidth = 1024;
+    _screenHeight = 768;
+    _gameState = PLAY;
 }
 
 //Destructor
@@ -85,7 +83,6 @@ void MainGame::gameLoop() {
     //Will loop until we set _gameState to EXIT
     while (_gameState != EXIT) {
         processInput();
-        _time += 0.01;
         drawGame();
     }
 }
@@ -96,29 +93,54 @@ void MainGame::processInput() {
 
     //Will keep looping until there are no more events to process
     while (SDL_PollEvent(&evnt)) {
+    std::string mouseButton;
         switch (evnt.type) {
             case SDL_QUIT:
-                _gameState = EXIT;
-                break;
+					_gameState = EXIT;
+					break;
             case SDL_MOUSEMOTION:
-                std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
-                break;
+					std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
+					break;
+            case SDL_MOUSEBUTTONDOWN:
+            	switch (evnt.button.button) {
+            		case SDL_BUTTON_LEFT:
+            			mouseButton = "left";
+            			break;
+            		case SDL_BUTTON_MIDDLE:
+            			mouseButton = "middle";
+            			break;
+            		case SDL_BUTTON_RIGHT:
+            			mouseButton = "right";
+            			break;
+            	}
+            	std::cout << mouseButton << " mouse button down" << std::endl;
+					break;
+            case SDL_MOUSEBUTTONUP:
+            	switch (evnt.button.button) {
+            		case SDL_BUTTON_LEFT:
+            			mouseButton = "left";
+            			break;
+            		case SDL_BUTTON_MIDDLE:
+            			mouseButton = "middle";
+            			break;
+            		case SDL_BUTTON_RIGHT:
+            			mouseButton = "right";
+            			break;
+            	}
+            	std::cout << mouseButton << " mouse button up" << std::endl;
+					break;
         }
     }
 }
 
 //Draws the game using the almighty OpenGL
 void MainGame::drawGame() {
-
     //Set the base depth to 1.0
     glClearDepth(1.0);
     //Clear the color and depth buffer
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     _colorProgram.use();
-
-    GLuint timeLocation = _colorProgram.getUniformLocation("time");
-    glUniform1f(timeLocation, _time);
 
     //Draw our sprite!
     _sprite.draw();

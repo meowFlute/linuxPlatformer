@@ -16,8 +16,7 @@ void main() {
     //you simply do (cos(x) + 1.0) * 0.5
 
     //Make crazy colors using time and position!
-    color = vec4(fragmentColor.r * (tan(fragmentPosition.x * 0.250 + fragmentPosition.y * 0.250 + ( (cos(time*10)+1) * 0.5 ) + 3.0) * 0.25),
-                 fragmentColor.g * (tan(fragmentPosition.x * 0.250 + fragmentPosition.y * 0.250 + ( (cos(time*2)+1) * 0.5 ) + 3.0) * 0.25),
-                 fragmentColor.b * (tan(fragmentPosition.x * 0.250 + fragmentPosition.y * 0.250 + ( (cos(time*5)+1) * 0.5 ) + 3.0) * 0.25), 
-                 fragmentColor.a );
+    color = vec4(fragmentColor.r * (cos(fragmentPosition.x * 4.0 + time) + 1.0) * 0.5,
+                 fragmentColor.g * (cos(fragmentPosition.y * 8.0 + time) + 1.0) * 0.5,
+                 fragmentColor.b * (cos(fragmentPosition.x * 2.0 + time) + 1.0) * 0.5, fragmentColor.a);
 }

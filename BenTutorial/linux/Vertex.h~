@@ -1,0 +1,22 @@
+#ifndef VERTEX_H
+#define VERTEX_H
+
+#include <GL/glew.h>
+
+struct Vertex 	//12 bytes
+{
+	struct Position
+	{
+		float x;
+		float y;
+	}position;	//two-dimensonal vertex data
+	struct Color	
+	{
+		GLubyte red;
+		GLubyte green;
+		GLubyte blue;
+		GLubyte alpha;
+	}color; 		//RGBA colors with 0-255
+};
+
+#endif 			//VERTEX_H

@@ -10,5 +10,5 @@ void fatalError(std::string errorString) {
     int tmp;
     std::cin >> tmp;
     SDL_Quit();
-    exit(-1); //now we say that -1 means fatal error
+    exit(-1);
 }
